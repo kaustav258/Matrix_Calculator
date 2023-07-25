@@ -1,5 +1,4 @@
 import re
-
 #function for the menu
 def menu():
     print(" for addtion > +\n for subtraction > -\n for multiplication > *\n for determinante > d\n for transpose > t\n for adjoint > a\n for inverse > i")
