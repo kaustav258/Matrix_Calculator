@@ -1,6 +1,8 @@
 import re
+import cowsay
 #function for the menu
 def menu():
+    print(" Your options are :")
     print(" for addtion > +\n for subtraction > -\n for multiplication > *\n for determinante > d\n for transpose > t\n for adjoint > a\n for inverse > i")
     return correct_menu_choice()
 
@@ -37,7 +39,6 @@ def get_order():
     while True:
         try :
             return int(input("\n Enter the order number :"))
-            break
         except ValueError:
             pass
 
@@ -46,7 +47,6 @@ def get_row_number():
     while True:
         try :
             return int(input("\n Enter the row number :"))
-            break
         except ValueError:
             pass
 
@@ -55,7 +55,6 @@ def get_column_number():
     while True:
         try:
             return int(input("\n Enter the column number :"))
-            break
         except ValueError:
             pass
 
@@ -63,8 +62,7 @@ def get_column_number():
 def get_element(i,j):
      while True:
         try:
-            return int(input(f"\n Enter the element for {i+1},{j+1} :"))
-            break
+            return float(input(f"\n Enter the element for {i+1},{j+1} :"))
         except ValueError:
             pass
 
@@ -508,7 +506,7 @@ def main():
     const = "n"
     hello = 0
     if(hello == 0):
-        print("WELCOME TO ph03n1x CALCULATOR \n")
+        cowsay.fox("WELCOME TO ph03n1x CALCULATOR \n")
         hello += 1
     
     while True:
@@ -661,9 +659,6 @@ def main():
         ask = input("\n Press any key to continue or press n to exit . ")
         
         if ask.lower() == const:
-            print(" your reseltis are :")
-            for i in range(0 , no_of_ans):
-                matrix_print(all_answer[i])
             break
         else:
             continue
