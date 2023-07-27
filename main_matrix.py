@@ -10,7 +10,7 @@ def menu():
 def correct_menu_choice():
     while True:
         choice = input("\n what you want :").lower()
-        ex_choice_correct = r'[\+\-\*\dd\dt\da\di]'
+        ex_choice_correct = r'[\+\-\*dtai]'
         if re.match(ex_choice_correct, choice):
             return choice
         else:
@@ -62,7 +62,7 @@ def get_column_number():
 def get_element(i,j):
      while True:
         try:
-            return float(input(f"\n Enter the element for {i+1},{j+1} :"))
+            return complex(input(f"\n Enter the element for {i+1},{j+1} :"))
         except ValueError:
             pass
 
@@ -335,7 +335,7 @@ def determinante_1st():
             # Iterate over the first row of the matrix
             for j in range(len(matrix)):
                 cofactor = (-1) ** j * matrix[0][j]
-                submatrix = [[matrix[i][k] for k in range(len(matrix)) if k != j] for i in range(1, len(matrix))]#kd
+                submatrix = [[matrix[i][k] for k in range(len(matrix)) if k != j] for i in range(1, len(matrix))]
                 sub_determinant = find_Determinante(submatrix)
                 determinant += cofactor * sub_determinant
 
@@ -568,7 +568,7 @@ def main():
                 no_of_ans += 1
                 all_answer.append(res_matrix)
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        else:#kd
+        else:
             choice = menu()
             if (choice == "+"):
                 res_matrix1 = addition_pre(res_matrix)
