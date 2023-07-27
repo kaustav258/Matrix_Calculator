@@ -8,7 +8,7 @@ def menu():
 def correct_menu_choice():
     while True:
         choice = input("\n what you want :").lower()
-        ex_choice_correct = r'[\+\-\*\dd\dt\da\di]'
+        ex_choice_correct = r'[\+\-\*dtai]'
         if re.match(ex_choice_correct, choice):
             return choice
         else:
@@ -60,7 +60,7 @@ def get_column_number():
 def get_element(i,j):
      while True:
         try:
-            return float(input(f"\n Enter the element for {i+1},{j+1} :"))
+            return complex(input(f"\n Enter the element for {i+1},{j+1} :"))
         except ValueError:
             pass
 
