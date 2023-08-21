@@ -217,9 +217,9 @@ def multiplication():
         for i in range(row_for_1):
             rows = []
             for j in range(column_for_2):
-                value = 0
+                value = 0 
                 for k in range(column_for_1):
-                    value = round(value + matrix1[i][k]*matrix2[k][j], 1)
+                    value = (value + matrix1[i][k]*matrix2[k][j], 1)
                 rows.append(value)
             result.append(rows)
         return result
@@ -253,7 +253,7 @@ def multiplication_pre(matrix):
                 for j in range(column_for_2):
                     value = 0
                     for k in range(column_for_1):
-                        value = round(value + matrix[i][k]*matrix2[k][j], 1)
+                        value = (value + matrix[i][k]*matrix2[k][j], 1)
                     rows.append(value)
                 result.append(rows)
             return result
@@ -283,7 +283,7 @@ def multiplication_pre(matrix):
                 for j in range(column_for_2):
                     value = 0
                     for k in range(column_for_1):
-                        value = round(value + matrix1[i][k]*matrix[k][j], 1)
+                        value = (value + matrix1[i][k]*matrix[k][j], 1)
                     rows.append(value)
                 result.append(rows)
             return result
@@ -302,7 +302,7 @@ def find_Determinante(matrix):
             # Base case for 2x2 matrix
             if len(matrix) == 2:
                 determinant = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-                return round(determinant, 3)
+                return (determinant)
 
             # Iterate over the first row of the matrix
             for j in range(len(matrix)):
@@ -311,7 +311,7 @@ def find_Determinante(matrix):
                 sub_determinant = find_Determinante(submatrix)
                 determinant += cofactor * sub_determinant
 
-            return round(determinant, 3)
+            return (determinant)
         else :
             return matrix
 
@@ -339,7 +339,7 @@ def determinante_1st():
                 sub_determinant = find_Determinante(submatrix)
                 determinant += cofactor * sub_determinant
 
-            return round(determinant, 3)
+            return (determinant)
 
 #function to calculate the transpose of a matrix
 def transpose():
@@ -406,7 +406,7 @@ def adjoint():
                 cofactor_determinant = find_Determinante(cofactor)
                 # Multiply by (-1)^(i+j)
                 sign = (-1) ** (i + j)
-                value = round(sign * cofactor_determinant, 1)
+                value = (sign * cofactor_determinant, 1)
                 adjoint_row.append(value)
             adjoint.append(adjoint_row)
         # Transpose the adjoint matrix
@@ -429,7 +429,7 @@ def adjoint_pre(matrix):
                 cofactor_determinant = find_Determinante(cofactor)
                 # Multiply by (-1)^(i+j)
                 sign = (-1) ** (i + j)
-                value = round(sign * cofactor_determinant, 1)
+                value = (sign * cofactor_determinant, 1)
                 adjoint_row.append(value)
             adjoint.append(adjoint_row)
         # Transpose the adjoint matrix
@@ -456,7 +456,7 @@ def inverse_pre(matrix):
                     cofactor_determinant = find_Determinante(cofactor)
                     # Multiply by (-1)^(i+j)
                     sign = (-1) ** (i + j)
-                    value = round((sign * cofactor_determinant) / total_determinante, 1)
+                    value = ((sign * cofactor_determinant) / total_determinante, 1)
                     adjoint_row.append(value)
                 adjoint.append(adjoint_row)
             # Transpose the adjoint matrix
@@ -488,7 +488,7 @@ def inverse():
                     cofactor_determinant = find_Determinante(cofactor)
                     # Multiply by (-1)^(i+j)
                     sign = (-1) ** (i + j)
-                    value = round((sign * cofactor_determinant) / total_determinante , 1)
+                    value = ((sign * cofactor_determinant) / total_determinante , 1)
                     adjoint_row.append(value)
                 adjoint.append(adjoint_row)
             # Transpose the adjoint matrix
@@ -498,9 +498,7 @@ def inverse():
 #main function
 def main():
     res_matrix = []
-    all_answer = []
     
-    no_of_ans = 0
     no =0
     des = "n"
     const = "n"
@@ -523,50 +521,36 @@ def main():
                 print("\n result is :")
                 matrix_print(res_matrix)
                 no += 1
-                no_of_ans += 1
-                all_answer.append(res_matrix)
             elif(choice == "a"):
                 res_matrix = adjoint()
                 print("\n adjoint of the matrix is :")
                 matrix_print(res_matrix)
                 no += 1
-                no_of_ans += 1
-                all_answer.append(res_matrix)
             elif(choice == "t"):
                 res_matrix = transpose()
                 print("\n transpose is :")
                 matrix_print(res_matrix)
                 no +=1 
-                no_of_ans += 1
-                all_answer.append(res_matrix)
             elif (choice == "-"):
                 res_matrix = subtraction()
                 print("\n result is :")
                 matrix_print(res_matrix)
                 no +=1
-                no_of_ans += 1
-                all_answer.append(res_matrix)
             elif (choice == "d"):
                 determin = determinante_1st()
                 print(f"\n determinante is {determin}")
                 no = 0
                 des = "n"
-                #no_of_ans += 1
-                #all_answer.append(res_matrix)
             elif (choice == "i"):
                 res_matrix = inverse()
                 print("\n Inverse is :")
                 matrix_print(res_matrix)
                 no += 1
-                no_of_ans += 1
-                all_answer.append(res_matrix)
             else:
                 res_matrix = multiplication()
                 print("\n result is :")
                 matrix_print(res_matrix)
                 no += 1
-                no_of_ans += 1
-                all_answer.append(res_matrix)
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         else:
             choice = menu()
@@ -577,8 +561,6 @@ def main():
                     print("\n result is :")
                     matrix_print(res_matrix)
                     no += 1
-                    no_of_ans += 1
-                    all_answer.append(res_matrix)
                 else:
                     print("\n you enter a wrong order matrix to do further calculation.")
                     no += 1
@@ -589,8 +571,6 @@ def main():
                     print("\n adjoint of the matrix is :")
                     matrix_print(res_matrix)
                     no += 1
-                    no_of_ans += 1
-                    all_answer.append(res_matrix)
                 else:
                     print("\n the order of the matrix is not same.")
                     no += 1
@@ -601,8 +581,6 @@ def main():
                     print("\n transpose is :")
                     matrix_print(res_matrix)
                     no += 1
-                    no_of_ans += 1
-                    all_answer.append(res_matrix)
                 else:
                     print("\n Invalid input or transpose is same")
                     no += 1
@@ -613,8 +591,6 @@ def main():
                     print("\n Inverse is :")
                     matrix_print(res_matrix)
                     no += 1
-                    no_of_ans += 1
-                    all_answer.append(res_matrix)
                 else:
                     pass #seem function to see the reply
             elif(choice == "-"):
@@ -624,8 +600,6 @@ def main():
                     print("\n result is :")
                     matrix_print(res_matrix)
                     no += 1
-                    no_of_ans += 1
-                    all_answer.append(res_matrix)
                 else:
                     print("\n You enter a wrong order matrix to do further calculation.")
                     no += 1
@@ -635,8 +609,6 @@ def main():
                     print(f"\n determinante is {determinante}")
                     no = 0
                     des = "n"
-                    #no_of_ans += 1
-                    #all_answer.append(determinante)
                 else:
                     print("\n we can't find the determinante of the matrix")
                     matrix_print(res_matrix)
@@ -648,8 +620,6 @@ def main():
                     print("\n result is :")
                     matrix_print(res_matrix)
                     no += 1
-                    no_of_ans += 1
-                    all_answer.append(res_matrix)
                 else:
                     print("\n You enter a wrong order matrix to do further calculation.")
                     no += 1
