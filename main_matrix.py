@@ -1,5 +1,4 @@
 import re
-import cowsay
 #function for the menu
 def menu():
     print(" Your options are :")
@@ -504,7 +503,7 @@ def main():
     const = "n"
     hello = 0
     if(hello == 0):
-        cowsay.fox("WELCOME TO ph03n1x CALCULATOR \n")
+        print("WELCOME TO kaustav258's Matrix CALCULATOR \n")
         hello += 1
     
     while True:
